@@ -2,6 +2,17 @@ library(dplyr)
 library(tidyr)
 library(googlesheets)
 
+loadData <- function() {
+  # Auth into drive
+  gs_auth()
+  
+  # Read teams current information
+  ss <<- gs_url("https://docs.google.com/spreadsheets/d/1_Vu1pKEjHWTlYiHPUW5GC5t4XTsHxs0Ni4Sjr44oAqk")
+  teams <<- gs_read_csv(ss, "teams")
+  ranking <<- gs_read_csv(ss, "ranking")
+  details <<- gs_read_csv(ss, "details")
+}
+
 processWeeks <- function(i) {
     # Auth into drive
     gs_auth()
