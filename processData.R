@@ -1,7 +1,3 @@
-library(dplyr)
-library(tidyr)
-library(googlesheets)
-
 loadData <- function() {
   # Auth into drive
   gs_auth()
